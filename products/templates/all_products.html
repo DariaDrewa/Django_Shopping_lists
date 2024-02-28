@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <h1>Moje produkty</h1>
 </head>
 <body>
 <ul>
-    {% for x in products %}
+    {% for x in myproducts %}
         <li>{{ x.product_name }} {{ x.quantity }}</li>
     {% endfor %}
 </ul>
