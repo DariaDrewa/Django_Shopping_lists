@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <h1>Moje listy zakupów</h1>
+</head>
+<body>
+<ul>
+    {% for x in my_shopping_lists %}
+        <li>{{ x.shopping_name}}</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
