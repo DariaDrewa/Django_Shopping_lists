@@ -1,3 +1,5 @@
+from django.shortcuts import redirect
+from django.db import transaction
 from django.http import HttpResponse
 from django.template import loader
 from .models import Products, ShoppingLists
@@ -20,13 +22,13 @@ def shopping_list(request):
     }
     return HttpResponse(template.render(context, request))
 
+
 #@transaction.atomic
 #def add(request, products_id):
-#    namiot = Namiot.objects.get(id=namiot_id)
-#    if not namiot.is_reserved:
-#        rez = Rezerwacja(namiot=namiot)
-#        rez.save()
-#    return redirect("index")
+#   products = shopping_list.objects.get(id=products_id)
+#   rez = shopping_list(products=products)
+#   rez.save()
+#   return redirect("")
 
 #@transaction.atomic
 #def delete(request, products_id):
