@@ -18,7 +18,7 @@ def shopping_list(request):
     my_shopping_lists = ShoppingLists.objects.all().values()
     template = loader.get_template('all_shopping_lists.html')
     context = {
-        'myshopping_lists': my_shopping_lists,
+        'my_shopping_lists': my_shopping_lists,
     }
     return HttpResponse(template.render(context, request))
 

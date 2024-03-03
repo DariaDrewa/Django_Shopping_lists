@@ -7,7 +7,7 @@ class ProductsAdmin(admin.ModelAdmin):
 
 
 class ShoppingListsAdmin(admin.ModelAdmin):
-    list_display = (id, "lists_name")
+    list_display = ("lists_name", )
 
 
 admin.site.register(Products, ProductsAdmin)
