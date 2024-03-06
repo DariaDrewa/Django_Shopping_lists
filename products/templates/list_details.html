@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h1> {{ my_shopping_lists.lists_name }}</h1>
+<ul>
+    {% for x in my_shopping_lists %}}
+        <li>{{ x.product_name }}</li>
+    {% endfor %}
+</ul>
+<p>Back to <a href="/shopping_list">All Shopping List</a></p>
+</body>
+</html>
