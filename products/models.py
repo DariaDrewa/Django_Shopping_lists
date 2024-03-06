@@ -1,5 +1,4 @@
 import builtins
-
 from django.db import models
 
 

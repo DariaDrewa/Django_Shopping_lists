@@ -23,6 +23,15 @@ def shopping_list(request):
     return HttpResponse(template.render(context, request))
 
 
+def list_details(request, id):
+    my_shopping_list = ShoppingLists.objects.get(id=id)
+    template = loader.get_template('list_details.html')
+    context = {
+        'my_shopping_list': my_shopping_list,
+    }
+    return HttpResponse(template.render(context, request))
+
+
 #@transaction.atomic
 #def add(request, products_id):
 #   products = shopping_list.objects.get(id=products_id)
