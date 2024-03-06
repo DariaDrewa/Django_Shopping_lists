@@ -5,7 +5,10 @@
 </head>
 <body>
 <ul>
-    <li><a href="details/{{ my_shopping_lists.lists_name }}"></a></li>
+    {% for x in my_shopping_lists %}
+    ### 'ShoppingLists' object is not iterable ###
+        <li><a href="details/{{ x.id}}">{{ x.lists_name }}</a></li>
+    {% endfor %}
 </ul>
 </body>
 </html>

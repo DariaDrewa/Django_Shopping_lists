@@ -3,10 +3,9 @@
 <body>
 <h1> {{ my_shopping_list.lists_name }}</h1>
 <ul>
-    <li>{% for x in my_shopping_list.lists_name %}
-            {{ x.product_name }}
-        {% endfor %}
-    </li>
+    {% for x in my_shopping_list %}
+        <li>{{ x.product_name }}</li>
+    {% endfor %}
 </ul>
 <p>Powrót do <a href="/shopping_list">list zakupów</a></p>
 </body>
