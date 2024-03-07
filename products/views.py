@@ -1,35 +1,34 @@
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render, get_object_or_404
 from django.db import transaction
 from django.http import HttpResponse
+from django.views.generic.list import ListView, View
+from django.views.generic.detail import DetailView
 from django.template import loader
 from .models import Products, ShoppingLists
 
 
-def products(request):
+class ProductsListView(ListView):
+    model = Products
+    template_name = 'all_products.html'
     my_products = Products.objects.all().values()
-    template = loader.get_template('all_products.html')
-    context = {
-        'my_products': my_products,
-    }
-    return HttpResponse(template.render(context, request))
+    context_object_name = 'my_products'
 
 
-def shopping_list(request):
-    my_shopping_lists = ShoppingLists.objects.all().values()
-    template = loader.get_template('all_shopping_lists.html')
-    context = {
-        'my_shopping_lists': my_shopping_lists,
-    }
-    return HttpResponse(template.render(context, request))
+class ShoppingListView(ListView):
+    model = ShoppingLists
+    template_name = 'all_shopping_lists.html'
+    my_shopping_lists = ShoppingLists.objects.all()
+    context_object_name = 'my_shopping_lists'
 
 
-def list_details(request, id):
-    my_shopping_list = ShoppingLists.objects.get(id=id)
-    template = loader.get_template('list_details.html')
-    context = {
-        'my_shopping_list': my_shopping_list,
-    }
-    return HttpResponse(template.render(context, request))
+class ShoppingListDetails(DetailView):
+    model = ShoppingLists
+    template_name = 'list_details.html'
+    context_object_name = 'details'
+
+#    model = ShoppingLists
+#    template_name = 'list_details.html'
+#    context_object_name = 'my_shopping_list'
 
 
 #@transaction.atomic

@@ -6,8 +6,7 @@
 <body>
 <ul>
     {% for x in my_shopping_lists %}
-    ### 'ShoppingLists' object is not iterable ###
-        <li><a href="details/{{ x.id}}">{{ x.lists_name }}</a></li>
+        <li><a href="/details/<int:pk>">{{ x.lists_name }}</a></li>
     {% endfor %}
 </ul>
 </body>
