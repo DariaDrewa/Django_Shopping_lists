@@ -4,10 +4,17 @@
     <h1>Moje listy zakupów</h1>
 </head>
 <body>
-<ul>
-    {% for x in my_shopping_lists %}
-        <li><a href="/details/<int:pk>">{{ x.lists_name }}</a></li>
-    {% endfor %}
-</ul>
+{% for x in my_shopping_lists %}
+    <!-- Display Objects -->
+    <tr>
+        <td>{{ x.lists_name }}</td>
+        <td>
+            <form action="{% url 'details' x.id %}">
+                 {% csrf_token %}
+                <input type="submit" value="Otwórz listę">
+            </form>
+        </td>
+    </tr>
+{% endfor %}
 </body>
 </html>

@@ -23,8 +23,8 @@ class ShoppingListView(ListView):
 
 class ShoppingListDetails(DetailView):
     model = ShoppingLists
-    template_name = 'list_details.html'
-    context_object_name = 'details'
+    template_name = "list_details.html"
+
 
 #    model = ShoppingLists
 #    template_name = 'list_details.html'

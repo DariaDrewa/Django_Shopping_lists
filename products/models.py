@@ -11,9 +11,8 @@ class Products(models.Model):
 
 
 class ShoppingLists(models.Model):
-    products = models.ManyToManyField(Products)
     lists_name = models.CharField(max_length=30)
-
+    products = models.ManyToManyField(Products, related_name="shoppinglists")
 
     def __str__(self):
         return f"{self.lists_name}"
