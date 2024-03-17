@@ -26,11 +26,6 @@ class ShoppingListDetails(DetailView):
     template_name = "list_details.html"
 
 
-#    model = ShoppingLists
-#    template_name = 'list_details.html'
-#    context_object_name = 'my_shopping_list'
-
-
 #@transaction.atomic
 #def add(request, products_id):
 #   products = shopping_list.objects.get(id=products_id)
