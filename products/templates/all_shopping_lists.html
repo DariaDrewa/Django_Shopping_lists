@@ -6,6 +6,7 @@
 <body>
 {% for x in my_shopping_lists %}
     <!-- Display Objects -->
+<ul>
     <tr>
         <td>{{ x.lists_name }}</td>
         <td>
@@ -15,6 +16,7 @@
             </form>
         </td>
     </tr>
+</ul>
 {% endfor %}
 </body>
 </html>
