@@ -7,7 +7,7 @@ class Products(models.Model):
     quantity = models.PositiveSmallIntegerField(default=1)
 
     def __str__(self):
-        return f"{self.id}, {self.product_name}"
+        return f"{self.id} - {self.product_name}"
 
     class Meta:
         verbose_name_plural = "Produkty"
