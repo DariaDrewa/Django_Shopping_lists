@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
 <body>
-<h1> {{ my_shopping_list }} </h1>
+<h1> {{ shoppinglists.lists_name }} </h1>
 <p> Produkty </p>
+<p>{{ object.products }}</p>
 <ul>
-
+{% for products in object_list %}
+    <li>{{ products.product_name }}</li>
+{% empty %}
+    <li>Brak produktów</li>
+{% endfor %}
 </ul>
-    <li><a href="{% url 'main' %}">Powrót do strony głównej</a></li>
-    <li><a href="{% url 'shopping_list' %}">Powrót do list zakupów</a></li>
+<p> {{ products_list }}</p>
+<li><a href="{% url 'main' %}">Powrót do strony głównej</a></li>
+<li><a href="{% url 'shopping_list' %}">Powrót do list zakupów</a></li>
 </body>
 </html>
 

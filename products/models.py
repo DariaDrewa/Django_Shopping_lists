@@ -12,12 +12,14 @@ class Products(models.Model):
     class Meta:
         verbose_name_plural = "Produkty"
 
+
 class ShoppingLists(models.Model):
     lists_name = models.CharField(max_length=30)
     products = models.ManyToManyField(Products)
 
     def __str__(self):
-        return f"{self.lists_name}"
+        id_for_list = self.id
+        return f"{id_for_list} {self.lists_name}"
 
     class Meta:
         verbose_name_plural = "Listy zakupów"

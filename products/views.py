@@ -2,8 +2,7 @@ from django.shortcuts import redirect, render, get_object_or_404
 from django.db import transaction
 from django.http import HttpResponse
 from django.views import generic
-from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
+from django.views.generic import ListView, DetailView
 from .models import Products, ShoppingLists
 from django.template import loader
 
@@ -23,8 +22,11 @@ class ShoppingListView(ListView):
 class ShoppingListDetails(DetailView):
     model = ShoppingLists
     template_name = "list_details.html"
-    context_object_name = 'my_shopping_list'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['products_list'] = Products.objects.all()
+        return context
 
 class Main(generic.ListView):
     template_name = 'main.html'
