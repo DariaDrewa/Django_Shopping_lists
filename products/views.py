@@ -1,10 +1,6 @@
-from django.shortcuts import redirect, render, get_object_or_404
-from django.db import transaction
-from django.http import HttpResponse
 from django.views import generic
 from django.views.generic import ListView, DetailView
 from .models import Products, ShoppingLists
-from django.template import loader
 
 
 class ProductsListView(ListView):
@@ -25,8 +21,9 @@ class ShoppingListDetails(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['products_list'] = Products.objects.all()
+        context['products_list'] = Products.objects.all() # todo: add filters
         return context
+
 
 class Main(generic.ListView):
     template_name = 'main.html'
