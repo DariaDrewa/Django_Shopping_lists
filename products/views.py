@@ -21,7 +21,7 @@ class ShoppingListDetails(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['products_list'] = Products.objects.all() # todo: add filters
+        context['products_list'] = Products.objects.filter(shoppinglists=self.object.id)
         return context
 
 
