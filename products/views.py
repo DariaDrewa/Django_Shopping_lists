@@ -1,7 +1,8 @@
+from django.shortcuts import render
 from django.views import generic
 from django.views.generic import ListView, DetailView
-from .models import Products, ShoppingLists
-
+from .models import Products, ShoppingLists, ShoppingListForm
+from django.http import request
 
 class ProductsListView(ListView):
     model = Products
@@ -31,3 +32,11 @@ class Main(generic.ListView):
     def get_queryset(self):
         qs1 = Products.objects.all()
         qs2 = ShoppingLists.objects.all()
+
+
+def shopping_list_create(request):
+    form = ShoppingListForm
+    return render(request,
+                  'new_shopping_list.html',
+                  {'form': form})
+

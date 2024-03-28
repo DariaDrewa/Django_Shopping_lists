@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Stwórz nową listę</title>
 </head>
 <body>
-
+<form action="" method="post" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Dodaj">
+</form>
 </body>
 </html>

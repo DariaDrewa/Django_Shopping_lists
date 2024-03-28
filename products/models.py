@@ -1,5 +1,5 @@
-import builtins
 from django.db import models
+from django import forms
 
 
 class Products(models.Model):
@@ -23,3 +23,9 @@ class ShoppingLists(models.Model):
 
     class Meta:
         verbose_name_plural = "Listy zakupów"
+
+
+class ShoppingListForm(forms.ModelForm):
+    class Meta:
+        model = ShoppingLists
+        fields = '__all__'
