@@ -47,3 +47,17 @@ def shopping_list_create(request):
                   'new_shopping_list.html',
                   {'form': form})
 
+
+def shopping_list_change(request, id):
+    shoppinglist = ShoppingLists.objects.get(id=id)
+    if request.method == 'POST':
+        form = ShoppingListForm(request.POST, instance=shoppinglist)
+        if form.is_valid():
+            form.save()
+            return redirect('details', shoppinglist.id)
+    else:
+        form = ShoppingListForm(instance=shoppinglist)
+
+    return render(request,
+                  'shopping_list_change.html',
+                  {'form': form})
