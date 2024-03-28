@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import generic
 from django.views.generic import ListView, DetailView
 from .models import Products, ShoppingLists, ShoppingListForm
@@ -35,7 +35,14 @@ class Main(generic.ListView):
 
 
 def shopping_list_create(request):
-    form = ShoppingListForm
+    if request.method == 'POST':
+        form = ShoppingListForm(request.POST)
+        if form.is_valid():
+            shopping_list = form.save()
+            return redirect('details', shopping_list.pk)
+    else:
+        form = ShoppingListForm
+
     return render(request,
                   'new_shopping_list.html',
                   {'form': form})
