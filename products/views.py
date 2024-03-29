@@ -61,3 +61,14 @@ def shopping_list_change(request, id):
     return render(request,
                   'shopping_list_change.html',
                   {'form': form})
+
+
+def shopping_list_delete(request, id):
+    shoppinglist = ShoppingLists.objects.get(id=id)
+    if request.method == "POST":
+        shoppinglist.delete()
+        return redirect('shopping_list')
+
+    return render(request,
+                  'delete_confirmation_page_list.html',
+                  {'shoppinglist': shoppinglist}) #todo: dodac nazwę listy do templatki z usuwaniem
