@@ -60,7 +60,8 @@ def shopping_list_change(request, id):
 
     return render(request,
                   'shopping_list_change.html',
-                  {'form': form})
+                  {'shoppinglist': shoppinglist,
+                   'form': form})
 
 
 def shopping_list_delete(request, id):
@@ -71,4 +72,4 @@ def shopping_list_delete(request, id):
 
     return render(request,
                   'delete_confirmation_page_list.html',
-                  {'shoppinglist': shoppinglist}) #todo: dodac nazwę listy do templatki z usuwaniem
+                  {'shoppinglist': shoppinglist})

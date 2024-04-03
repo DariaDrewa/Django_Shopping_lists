@@ -14,8 +14,8 @@ class Products(models.Model):
 
 
 class ShoppingLists(models.Model):
-    lists_name = models.CharField(max_length=30)
-    products = models.ManyToManyField(Products)
+    lists_name = models.CharField(max_length=30, verbose_name="Nazwa listy")
+    products = models.ManyToManyField(Products, verbose_name="Produkty")
 
     def __str__(self):
         id_for_list = self.id
