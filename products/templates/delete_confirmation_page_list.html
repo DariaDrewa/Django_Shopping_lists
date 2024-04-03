@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <head>
-    <title>Jesteś pewny?</title>
+    <title>Jestes pewny?</title>
 </head>
 <body>
-<p>Jesteś pewny, że chcesz usunąć listę: {{ lists_name }}?</p>
-
+<h1>Jesteś pewny, że chcesz usunąć listę: "{{ shoppinglist.lists_name }}"?</h1>
 <form action="" method="post">
     {% csrf_token %}
-    <input type="submit" value="Usuń listę">
+    <input type="submit" value="Tak, usuń listę">
 </form>
-<li><a href="{% url 'shopping_list' %}">Powrót do list zakupów</a></li>
+<form action="{% url 'details' shoppinglist.id %}">
+                 {% csrf_token %}
+                <input type="submit" value="Nie, wróć do listy">
+</form>
 </body>
 </html>

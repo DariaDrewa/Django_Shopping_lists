@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <head>
-    <title>Edycja listy zakupóœ </title>
+    <title>Edycja listy zakupow </title>
 </head>
 <body>
-<h1>Edycja listy zakupów: {{ lists_name }}</h1>
+<h1>Edycja listy zakupów: {{ shoppinglist.lists_name }} </h1>
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Zapisz zmiany">
 </form>
-<li><a href="{% url 'main' %}">Powrót do strony głównej</a></li>
-<li><a href="{% url 'shopping_list' %}">Przejdź do wszystkich list</a></li>
-<li><a href="{% url 'products' %}">Wszystkie dostępne produkty</a></li>
+<form action="{% url 'details' shoppinglist.id %}">
+                 {% csrf_token %}
+                <input type="submit" value="Anuluj zmiany">
+</form>
 </body>
 </html>
