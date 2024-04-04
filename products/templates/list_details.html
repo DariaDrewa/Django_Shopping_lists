@@ -5,7 +5,7 @@
 <p> Produkty: </p>
 <ul>
 {% for products in products_list %}
-    <li>{{ products.product_name }}</li>
+    <li>{{ products.product_name }} {{ products.quantity }}</li>
 {% empty %}
     <li>Brak produktów</li>
 {% endfor %}

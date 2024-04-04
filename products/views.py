@@ -15,6 +15,22 @@ class ShoppingListView(ListView):
     template_name = 'all_shopping_lists.html'
     context_object_name = 'my_shopping_lists'
 
+    def get_context_data(self, **kwargs):
+        context = super(ShoppingListView, self).get_context_data(**kwargs)
+        context["form"] = ShoppingListForm(self.request.POST or None)
+        return context
+    def post(self, *args, **kwargs):
+        self.object_list = self.get_queryset()
+        context = self.get_context_data()
+        form = context["form"]
+        if form.is_valid():
+            lists_name = self.request.POST["lists_name"]
+
+            if lists_name != "":
+                self.object_list = self.object_list.filter(lists_name=lists_name)
+
+            context[self.context_object_name] = self.object_list
+        return render(self.request, self.template_name, context)
 
 class ShoppingListDetails(DetailView):
     model = ShoppingLists

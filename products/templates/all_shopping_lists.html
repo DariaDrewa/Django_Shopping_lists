@@ -4,9 +4,25 @@
     <h1>Moje listy zakupów</h1>
 </head>
 <body>
+<form action="{% url 'shopping_list' %}" method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+        {% if field.label == "Nazwa listy" %}
+                <div class="fieldWrapper">
+                    {{ field.errors }}
+                    {{ field.label_tag }} {{ field }}
+                </div>
+        {% endif %}
+    {% endfor %}
+    <input type="submit" value="SZUKAJ">
+</form>
+<table>
+    <tr>
+        <th>Nazwa listy</th>
+        <th></th>
+    </tr>
 {% for x in my_shopping_lists %}
     <!-- Display Objects -->
-<ul>
     <tr>
         <td>{{ x.lists_name }}</td>
         <td>
@@ -16,8 +32,10 @@
             </form>
         </td>
     </tr>
-</ul>
+
 {% endfor %}
+</table>
+
 <ul>
     <li><a href="{% url 'main' %}">Powrót do strony głównej</a></li>
     <li><a href="{% url 'create' %}">Stwórz nową listę zakupów</a></li>
