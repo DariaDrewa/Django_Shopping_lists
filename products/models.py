@@ -3,8 +3,8 @@ from django import forms
 
 
 class Products(models.Model):
-    product_name = models.CharField(max_length=15)
-    quantity = models.PositiveSmallIntegerField(default=1)
+    product_name = models.CharField(max_length=15, verbose_name="Produkty ")
+    quantity = models.PositiveSmallIntegerField(default=1, verbose_name="Ilość ")
 
     def __str__(self):
         return f"{self.id} - {self.product_name}"
@@ -29,3 +29,9 @@ class ShoppingListForm(forms.ModelForm):
     class Meta:
         model = ShoppingLists
         fields = '__all__'
+
+
+class ProductsForm(forms.ModelForm):
+    class Meta:
+        model = Products
+        fields = ('product_name', )

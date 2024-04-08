@@ -4,18 +4,7 @@
     <h1>Moje listy zakupów</h1>
 </head>
 <body>
-<form action="{% url 'shopping_list' %}" method="POST">
-    {% csrf_token %}
-    {% for field in form %}
-        {% if field.label == "Nazwa listy" %}
-                <div class="fieldWrapper">
-                    {{ field.errors }}
-                    {{ field.label_tag }} {{ field }}
-                </div>
-        {% endif %}
-    {% endfor %}
-    <input type="submit" value="SZUKAJ">
-</form>
+
 <table>
     <tr>
         <th>Nazwa listy</th>

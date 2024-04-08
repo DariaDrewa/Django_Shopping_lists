@@ -4,6 +4,17 @@
     <h1>Moje produkty</h1>
 </head>
 <body>
+<form action="{% url 'products' %}" method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+        <div class="fieldWrapper">
+            {{ field.errors }}
+            {{ field.label_tag }} {{ field }}
+        </div>
+    {% endfor %}
+    <input type="submit" value="Szukaj">
+</form>
+
 <ul>
     {% for x in my_products %}
         <li>{{ x.product_name }} {{ x.quantity }}</li>

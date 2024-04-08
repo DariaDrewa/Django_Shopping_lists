@@ -1,13 +1,35 @@
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.views.generic import ListView, DetailView
-from .models import Products, ShoppingLists, ShoppingListForm
+from .models import Products, ShoppingLists, ShoppingListForm, ProductsForm
 from django.http import request
+
 
 class ProductsListView(ListView):
     model = Products
     template_name = 'all_products.html'
     context_object_name = 'my_products'
+
+    def get_queryset(self):
+        return Products.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super(ProductsListView, self).get_context_data(**kwargs)
+        context["form"] = ProductsForm(self.request.POST or None)
+        return context
+
+    def post(self, *args, **kwargs):
+        self.object_list = self.get_queryset()
+        context = self.get_context_data()
+        form = context["form"]
+        if form.is_valid():
+            product_name = self.request.POST["product_name"]
+
+            if product_name != "":
+                self.object_list = self.object_list.filter(product_name=product_name)
+
+            context[self.context_object_name] = self.object_list
+        return render(self.request, self.template_name, context)
 
 
 class ShoppingListView(ListView):
@@ -15,22 +37,6 @@ class ShoppingListView(ListView):
     template_name = 'all_shopping_lists.html'
     context_object_name = 'my_shopping_lists'
 
-    def get_context_data(self, **kwargs):
-        context = super(ShoppingListView, self).get_context_data(**kwargs)
-        context["form"] = ShoppingListForm(self.request.POST or None)
-        return context
-    def post(self, *args, **kwargs):
-        self.object_list = self.get_queryset()
-        context = self.get_context_data()
-        form = context["form"]
-        if form.is_valid():
-            lists_name = self.request.POST["lists_name"]
-
-            if lists_name != "":
-                self.object_list = self.object_list.filter(lists_name=lists_name)
-
-            context[self.context_object_name] = self.object_list
-        return render(self.request, self.template_name, context)
 
 class ShoppingListDetails(DetailView):
     model = ShoppingLists
