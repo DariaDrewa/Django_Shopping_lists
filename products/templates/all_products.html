@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <STYLE TYPE="text/css">
+    <!--
+    a { color: black }
+    -->
+    </STYLE>
+
     <h1>Moje produkty</h1>
 </head>
 <body>
@@ -14,12 +20,13 @@
     {% endfor %}
     <input type="submit" value="Szukaj">
 </form>
-
+<button><a href="{% url 'products' %}" style="text-decoration: none">Resetuj wyszukiwanie</a></button>
 <ul>
     {% for x in my_products %}
         <li>{{ x.product_name }} {{ x.quantity }}</li>
     {% endfor %}
 </ul>
+
 <ul>
     <li><a href="{% url 'main' %}">Powrót do strony głównej</a></li>
     <li><a href="{% url 'shopping_list' %}">Wszystkie listy zakupów</a></li>
