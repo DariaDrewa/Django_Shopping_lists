@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.views.generic import ListView, DetailView
-from .models import Products, ShoppingLists, ShoppingListForm, ProductsForm
+from .models import Products, ShoppingLists, ShoppingListForm, ProductsForm, QuantityInput
 from django.http import request
 
 
@@ -95,3 +95,18 @@ def shopping_list_delete(request, id):
     return render(request,
                   'delete_confirmation_page_list.html',
                   {'shoppinglist': shoppinglist})
+
+
+def product_change(request, id):
+    products = Products.objects.get(id=id)
+    if request.method == "POST":
+        form = ProductsForm(request.POST, instance=products)
+        if form.is_valid():
+            form.save()
+            return render(request, 'all_products.html')
+    else:
+        form = ProductsForm(instance=products)
+    return render(request,
+                  'product_change.html',
+                  {'products': products,
+                   'form': form})

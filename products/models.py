@@ -4,7 +4,6 @@ from django import forms
 
 class Products(models.Model):
     product_name = models.CharField(max_length=15, verbose_name="Produkty ")
-    quantity = models.PositiveSmallIntegerField(default=1, verbose_name="Ilość ")
 
     def __str__(self):
         return f"{self.id} - {self.product_name}"
@@ -16,6 +15,7 @@ class Products(models.Model):
 class ShoppingLists(models.Model):
     lists_name = models.CharField(max_length=30, verbose_name="Nazwa listy")
     products = models.ManyToManyField(Products, verbose_name="Produkty")
+    quantity = models.PositiveSmallIntegerField(default=1)
 
     def __str__(self):
         id_for_list = self.id
@@ -28,10 +28,16 @@ class ShoppingLists(models.Model):
 class ShoppingListForm(forms.ModelForm):
     class Meta:
         model = ShoppingLists
-        fields = '__all__'
+        fields = ('lists_name', 'products')
 
 
 class ProductsForm(forms.ModelForm):
     class Meta:
         model = Products
         fields = ('product_name', )
+
+
+class QuantityInput(forms.ModelForm):
+    class Meta:
+        model = ShoppingLists
+        fields = ('quantity', )

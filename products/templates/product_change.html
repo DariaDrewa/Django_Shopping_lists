@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<head>
+    <title>Edycja produktu</title>
+</head>
+<body>
+<h1>Produkt do edycji: "{{ products.product_name }}"</h1>
+<form action="{% url 'products' %}" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Zapisz zmiany">
+</form>
+<form action="{% url 'products' %}">
+    {% csrf_token %}
+    <input type="submit" value="Anuluj zmiany">
+</form>
+</body>
+</html>

@@ -2,14 +2,20 @@
 <html>
 <body>
 <h1> {{ shoppinglists.lists_name }} </h1>
-<p> Produkty: </p>
-<ul>
-{% for products in products_list %}
-    <li>{{ products.product_name }} {{ products.quantity }}</li>
-{% empty %}
+
+<table>
+    <tr>
+        <th>Produkty:</th>
+    </tr>
+    {% for product in products_list %}
+    <tr>
+        <td>{{ product.product_name }}</td>
+    </tr>
+    {% empty %}
     <li>Brak produktów</li>
-{% endfor %}
-</ul>
+    {% endfor %}
+</table>
+
 <li><a href="{% url 'change' shoppinglists.id %}">Edycja listy</a></li>
 <li><a href="{% url 'delete' shoppinglists.id %}">Usuń listę</a></li>
 <li><a href="{% url 'shopping_list' %}">Powrót do list zakupów</a></li>
