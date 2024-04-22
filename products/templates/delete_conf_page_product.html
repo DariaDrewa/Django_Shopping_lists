@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<head>
+    <title>Jestes pewny?</title>
+</head>
+<body>
+<h1>Jesteś pewny, że chcesz usunąć produkt: "{{ products.product_name }}"?</h1>
+<form action="{% url 'products' %}" method="post">
+    {% csrf_token %}
+    <input type="submit" value="Tak, usuń produkt">
+</form>
+<form action="{% url 'products' %}">
+    {% csrf_token %}
+    <input type="submit" value="Nie, wróć do listy">
+</form>
+</body>
+</html>

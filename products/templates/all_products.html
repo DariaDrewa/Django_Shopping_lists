@@ -23,7 +23,9 @@
 <button><a href="{% url 'products' %}" style="text-decoration: none">Resetuj wyszukiwanie</a></button>
 <ul>
     {% for x in my_products %}
-        <li>{{ x.product_name }}</li> <button><a href="{% url 'product_change' x.id %}">Edycja produktu</a></button>
+        <li>{{ x.product_name }}
+        </li> <button><a href="{% url 'product_change' x.id %}">Edycja produktu</a></button>
+        </li> <button><a href="{% url 'product_delete' x.id %}">Usuń produkt</a></button>
     {% endfor %}
 </ul>
 

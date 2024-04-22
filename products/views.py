@@ -110,3 +110,13 @@ def product_change(request, id):
                   'product_change.html',
                   {'products': products,
                    'form': form})
+
+def product_delete(request, id):
+    products = Products.objects.get(id=id)
+    if request.method == "POST":
+        products.delete()
+        return redirect('products')
+
+    return render(request,
+                  'delete_conf_page_product.html',
+                  {'products': products})
