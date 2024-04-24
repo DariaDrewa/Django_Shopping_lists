@@ -28,7 +28,7 @@
         </li> <button><a href="{% url 'product_delete' x.id %}">Usuń produkt</a></button>
     {% endfor %}
 </ul>
-
+</li> <button><a href="{% url 'product_create' %}">Dodaj nowy produkt</a></button>
 <ul>
     <li><a href="{% url 'main' %}">Powrót do strony głównej</a></li>
     <li><a href="{% url 'shopping_list' %}">Wszystkie listy zakupów</a></li>

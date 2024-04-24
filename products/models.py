@@ -3,7 +3,7 @@ from django import forms
 
 
 class Products(models.Model):
-    product_name = models.CharField(max_length=15, verbose_name="Produkty ")
+    product_name = models.CharField(max_length=15, verbose_name="Nazwa produktu")
 
     def __str__(self):
         return f"{self.id} - {self.product_name}"

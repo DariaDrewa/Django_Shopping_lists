@@ -97,6 +97,20 @@ def shopping_list_delete(request, id):
                   {'shoppinglist': shoppinglist})
 
 
+def product_create(request):
+    if request.method == 'POST':
+        form = ProductsForm(request.POST)
+        if form.is_valid():
+            products = form.save()
+            return render(request, 'all_products.html')
+    else:
+        form = ProductsForm
+
+    return render(request,
+                  'new_product.html',
+                  {'form': form})
+
+
 def product_change(request, id):
     products = Products.objects.get(id=id)
     if request.method == "POST":
@@ -120,3 +134,6 @@ def product_delete(request, id):
     return render(request,
                   'delete_conf_page_product.html',
                   {'products': products})
+
+#TODO: add posibility to add products
+#TODO: add posibility to add quantity
