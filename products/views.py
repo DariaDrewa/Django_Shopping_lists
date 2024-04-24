@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.views.generic import ListView, DetailView
-from .models import Products, ShoppingLists, ShoppingListForm, ProductsForm, QuantityInput
-from django.http import request
+from .models import Products, ShoppingLists
+from .forms import ShoppingListForm, ProductsForm, QuantityInput
 
 
 class ProductsListView(ListView):
@@ -135,5 +135,4 @@ def product_delete(request, id):
                   'delete_conf_page_product.html',
                   {'products': products})
 
-#TODO: add posibility to add products
 #TODO: add posibility to add quantity

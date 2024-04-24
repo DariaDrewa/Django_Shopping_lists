@@ -20,7 +20,7 @@
     {% endfor %}
     <input type="submit" value="Szukaj">
 </form>
-<button><a href="{% url 'products' %}" style="text-decoration: none">Resetuj wyszukiwanie</a></button>
+<button><a href="{% url 'products' %}">Resetuj wyszukiwanie</a></button>
 <ul>
     {% for x in my_products %}
         <li>{{ x.product_name }}

@@ -1,12 +1,12 @@
 from django.db import models
-from django import forms
+
 
 
 class Products(models.Model):
     product_name = models.CharField(max_length=15, verbose_name="Nazwa produktu")
 
     def __str__(self):
-        return f"{self.id} - {self.product_name}"
+        return f"{self.product_name}"
 
     class Meta:
         verbose_name_plural = "Produkty"
@@ -25,19 +25,4 @@ class ShoppingLists(models.Model):
         verbose_name_plural = "Listy zakupów"
 
 
-class ShoppingListForm(forms.ModelForm):
-    class Meta:
-        model = ShoppingLists
-        fields = ('lists_name', 'products')
 
-
-class ProductsForm(forms.ModelForm):
-    class Meta:
-        model = Products
-        fields = ('product_name', )
-
-
-class QuantityInput(forms.ModelForm):
-    class Meta:
-        model = ShoppingLists
-        fields = ('quantity', )
