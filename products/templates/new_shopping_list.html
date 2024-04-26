@@ -2,9 +2,11 @@
 <html>
 <head>
     <title>Stwórz nową listę</title>
+    <h1>Stwórz nową listę!</h1>
 </head>
 <body>
-<form action="" method="post" novalidate>
+<p>Dodaj produkty, a ilość skonfigurujesz na następnej stronie.</p>
+<form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Dodaj">

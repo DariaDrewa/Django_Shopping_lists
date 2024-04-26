@@ -4,6 +4,7 @@
 </head>
 <body>
 <h1>Edycja listy zakupów: "{{ shoppinglist.lists_name }}"</h1>
+<p>Zmień produkty, jakie znajdują się na liście: </p>
 <form action="" method="post">
     {% csrf_token %}
     {{ form.as_p }}

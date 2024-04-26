@@ -10,6 +10,7 @@
     <h1>Moje produkty</h1>
 </head>
 <body>
+<p>Wyszukaj produkt: </p>
 <form action="{% url 'products' %}" method="POST">
     {% csrf_token %}
     {% for field in form %}
@@ -21,6 +22,9 @@
     <input type="submit" value="Szukaj">
 </form>
 <button><a href="{% url 'products' %}">Resetuj wyszukiwanie</a></button>
+<p></p>
+<p>Dostępne produkty:</p>
+<p></p>
 <ul>
     {% for x in my_products %}
         <li>{{ x.product_name }}
