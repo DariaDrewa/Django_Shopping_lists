@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.views import generic
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 from .models import Products, ShoppingLists
-from .forms import ShoppingListForm, ProductsForm, QuantityInput
+from .forms import ShoppingListForm, ProductsForm
 
 
 class ProductsListView(ListView):
@@ -54,6 +54,12 @@ class Main(generic.ListView):
     def get_queryset(self):
         qs1 = Products.objects.all()
         qs2 = ShoppingLists.objects.all()
+
+
+class ShoppingListCreate(CreateView):
+    model = ShoppingLists
+    form_class = ShoppingListForm
+    template_name = 'new_shopping_list.html'
 
 
 def shopping_list_create(request):
@@ -125,6 +131,7 @@ def product_change(request, id):
                   {'products': products,
                    'form': form})
 
+
 def product_delete(request, id):
     products = Products.objects.get(id=id)
     if request.method == "POST":
@@ -135,4 +142,7 @@ def product_delete(request, id):
                   'delete_conf_page_product.html',
                   {'products': products})
 
-#TODO: add posibility to add quantity
+
+
+
+

@@ -13,3 +13,4 @@ class ShoppingListsAdmin(admin.ModelAdmin):
 admin.site.register(Products, ProductsAdmin)
 admin.site.register(ShoppingLists, ShoppingListsAdmin)
 
+
