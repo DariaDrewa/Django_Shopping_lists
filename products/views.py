@@ -5,6 +5,14 @@ from .models import Products, ShoppingLists
 from .forms import ShoppingListForm, ProductsForm
 
 
+class Main(generic.ListView):
+    template_name = 'main.html'
+
+    def get_queryset(self):
+        qs1 = Products.objects.all()
+        qs2 = ShoppingLists.objects.all()
+
+
 class ProductsListView(ListView):
     model = Products
     template_name = 'all_products.html'
@@ -46,14 +54,6 @@ class ShoppingListDetails(DetailView):
         context = super().get_context_data(**kwargs)
         context['products_list'] = Products.objects.filter(shoppinglists=self.object.id)
         return context
-
-
-class Main(generic.ListView):
-    template_name = 'main.html'
-
-    def get_queryset(self):
-        qs1 = Products.objects.all()
-        qs2 = ShoppingLists.objects.all()
 
 
 class ShoppingListCreate(CreateView):

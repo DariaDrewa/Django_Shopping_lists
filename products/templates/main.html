@@ -1,13 +1,28 @@
-<!DOCTYPE html>
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style type="text/css">
+    .my-grid{
+
+    }
+
+</style>
+
 <html>
 <head>
     <h1>Katalog list zakupów</h1>
 </head>
 <body>
-<ul>
-    <li><a href="{% url 'create' %}">Stwórz nową listę zakupów</a></li>
-    <li><a href="{% url 'shopping_list' %}">Wszystkie listy zakupów</a></li>
-    <li><a href="{% url 'products' %}">Wszystkie dostępne produkty</a></li>
-</ul>
+<div class="container">
+    <div class="my.grid d-flex flex-column">
+        <ul>
+            <li><a href="{% url 'create' %}">Stwórz nową listę zakupów</a></li>
+            <li><a href="{% url 'shopping_list' %}">Wszystkie listy zakupów</a></li>
+            <li><a href="{% url 'products' %}">Wszystkie dostępne produkty</a></li>
+        </ul>
+    </div>
+</div>
 </body>
 </html>
+{% endblock content %}

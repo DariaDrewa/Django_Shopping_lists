@@ -1,0 +1,48 @@
+{% load static %}
+
+<div class="d-flex p-3 px-md-4 mb-4 bg-white border-bottom shadow-sm">
+    <!-- MEDIUM screens -->
+    <div class="d-none d-md-flex flex-row my-auto flex-grow-1 align-items-center">
+        <h5 class="mr-3 font-weight-normal justify-content-start">
+            <a class="p-2 text-dark" href="{% url 'main' %}">HOME</a>
+        </h5>
+
+        <div class="d-flex flex-row-reverse flex-grow-1">
+            <nav>
+                {% if request.user.is_authenticated %}
+                    <div class="d-flex align-items-center p-2">
+                        <img class="account-image rounded-circle mr-2" id="id_profile_links"
+                            src="{% static 'image/logo.png' %}" alt="logo" width="40" height="40">
+                        <a class="btn btn-outline-primary ml-2" href="#">Konto</a>
+                        <a class="btn btn-outline-primary ml-2" href="#">Wyloguj się</a>
+                    </div>
+                {% else %}
+                    <a class="p-2 text-dark" href="#">Zaloguj się</a>
+                    <a class="btn btn-outline-primary" href="#">Zarejestruj się</a>
+                {% endif %}
+            </nav>
+        </div>
+    </div>
+</div>
+    <!-- SMALL screens -->
+     <div class="d-flex d-md-none flex-column my-auto flex-grow-1 align-items-center">
+        <h5 class="font-weight-normal">
+            <a class="p-2 text-dark" href="{% url 'main' %}">HOME</a>
+        </h5>
+         <div class="d-flex flex-row-reverse flex-grow-1">
+            <nav class="">
+                {% if request.user.is_authenticated %}
+                    <div class="d-flex align-items-center p-2">
+                        <img class="account-image rounded-circle mr-2" id="id_profile_links"
+                            src="{% static 'image/logo.png' %}" alt="logo" width="40" height="40">
+                        <a class="btn btn-outline-primary ml-2" href="#">Konto</a>
+                        <a class="btn btn-outline-primary ml-2" href="#">Wyloguj się</a>
+                    </div>
+                {% else %}
+                    <a class="p-2 text-dark" href="#">Zaloguj się</a>
+                    <a class="btn btn-outline-primary" href="#">Zarejestruj się</a>
+                {% endif %}
+            </nav>
+        </div>
+    </div>
+</div>
