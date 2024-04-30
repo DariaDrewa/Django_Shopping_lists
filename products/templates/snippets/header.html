@@ -11,14 +11,12 @@
             <nav>
                 {% if request.user.is_authenticated %}
                     <div class="d-flex align-items-center p-2">
-                        <img class="account-image rounded-circle mr-2" id="id_profile_links"
-                            src="{% static 'image/logo.png' %}" alt="logo" width="40" height="40">
                         <a class="btn btn-outline-primary ml-2" href="#">Konto</a>
                         <a class="btn btn-outline-primary ml-2" href="#">Wyloguj się</a>
                     </div>
                 {% else %}
                     <a class="p-2 text-dark" href="#">Zaloguj się</a>
-                    <a class="btn btn-outline-primary" href="#">Zarejestruj się</a>
+                    <a class="btn btn-outline-primary" href="{% url 'register' %}">Zarejestruj się</a>
                 {% endif %}
             </nav>
         </div>
@@ -33,14 +31,12 @@
             <nav class="">
                 {% if request.user.is_authenticated %}
                     <div class="d-flex align-items-center p-2">
-                        <img class="account-image rounded-circle mr-2" id="id_profile_links"
-                            src="{% static 'image/logo.png' %}" alt="logo" width="40" height="40">
-                        <a class="btn btn-outline-primary ml-2" href="#">Konto</a>
-                        <a class="btn btn-outline-primary ml-2" href="#">Wyloguj się</a>
+                        <a class="btn btn-outline-primary ml-2" href="{% url 'register' %}">Konto</a>
+                        <a class="btn btn-outline-primary ml-2" href="{% url 'register' %}">Wyloguj się</a>
                     </div>
                 {% else %}
-                    <a class="p-2 text-dark" href="#">Zaloguj się</a>
-                    <a class="btn btn-outline-primary" href="#">Zarejestruj się</a>
+                    <a class="p-2 text-dark" href="{% url 'register' %}">Zaloguj się</a>
+                    <a class="btn btn-outline-primary" href="{% url 'register' %}">Zarejestruj się</a>
                 {% endif %}
             </nav>
         </div>
