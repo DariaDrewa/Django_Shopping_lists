@@ -1,15 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
     <STYLE TYPE="text/css">
     <!--
     a { color: black }
     -->
     </STYLE>
 
-    <h1>Moje produkty</h1>
-</head>
 <body>
+
+<h1>Moje produkty</h1>
+
 <p>Wyszukaj produkt: </p>
 <form action="{% url 'products' %}" method="POST">
     {% csrf_token %}
@@ -39,4 +42,5 @@
     <li><a href="{% url 'create' %}">Stwórz nową listę zakupów</a></li>
 </ul>
 </body>
-</html>
+
+{% endblock content %}

@@ -1,8 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <h1>Moje listy zakupów</h1>
-</head>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<h1>Moje listy zakupów</h1>
+
 <body>
 
 <table>
@@ -31,4 +33,5 @@
     <li><a href="{% url 'products' %}">Wszystkie dostępne produkty</a></li>
 </ul>
 </body>
-</html>
+
+{% endblock content %}
