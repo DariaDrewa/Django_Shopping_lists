@@ -3,35 +3,52 @@
 
 {% block content %}
 
-<h1>Moje listy zakupów</h1>
+<style type="text/css">
+    .my-grid{
+    }
+    .card-signin {
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    margin: auto;
+    }
+</style>
+
+
 
 <body>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="card card-signin">
+            <div class="card-body">
+                <h1>Moje listy zakupów.</h1>
+                <table>
+                    <tr>
+                        <th>Nazwa listy:</th>
+                    </tr>
+                    {% for x in my_shopping_lists %}
+                        <!-- Display Objects -->
+                        <tr>
+                            <td>{{ x.lists_name }}</td>
+                            <td>
+                                <form action="{% url 'details' x.id %}">
+                                     {% csrf_token %}
+                                    <input type="submit" value="Otwórz listę">
+                                </form>
+                            </td>
+                        </tr>
 
-<table>
-    <tr>
-        <th>Nazwa listy</th>
-        <th></th>
-    </tr>
-{% for x in my_shopping_lists %}
-    <!-- Display Objects -->
-    <tr>
-        <td>{{ x.lists_name }}</td>
-        <td>
-            <form action="{% url 'details' x.id %}">
-                 {% csrf_token %}
-                <input type="submit" value="Otwórz listę">
-            </form>
-        </td>
-    </tr>
+                    {% endfor %}
+                </table>
 
-{% endfor %}
-</table>
-
-<ul>
-    <li><a href="{% url 'main' %}">Powrót do strony głównej</a></li>
-    <li><a href="{% url 'create' %}">Stwórz nową listę zakupów</a></li>
-    <li><a href="{% url 'products' %}">Wszystkie dostępne produkty</a></li>
-</ul>
+                <ul>
+                    <li><a href="{% url 'create' %}">Stwórz nową listę zakupów</a></li>
+                    <li><a href="{% url 'products' %}">Wszystkie dostępne produkty</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 
 {% endblock content %}

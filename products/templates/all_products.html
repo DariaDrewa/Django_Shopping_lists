@@ -3,44 +3,59 @@
 
 {% block content %}
 
-    <STYLE TYPE="text/css">
+<STYLE TYPE="text/css">
     <!--
     a { color: black }
     -->
-    </STYLE>
+
+    .card-signin {
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    margin: auto;
+    }
+
+</STYLE>
 
 <body>
-
-<h1>Moje produkty</h1>
-
-<p>Wyszukaj produkt: </p>
-<form action="{% url 'products' %}" method="POST">
-    {% csrf_token %}
-    {% for field in form %}
-        <div class="fieldWrapper">
-            {{ field.errors }}
-            {{ field.label_tag }} {{ field }}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="card card-signin">
+            <div class="card-body">
+                <h1>Moje produkty</h1>
+                <p>_______________________________________________________</p>
+                <p>Wyszukaj produkt: </p>
+                <form action="{% url 'products' %}" method="POST">
+                    {% csrf_token %}
+                    {% for field in form %}
+                        <div class="fieldWrapper">
+                            {{ field.errors }}
+                            {{ field.label_tag }} {{ field }}
+                        </div>
+                    {% endfor %}
+                    <input type="submit" value="Szukaj">
+                <p>_______________________________________________________</p>
+                </form>
+                <button><a href="{% url 'products' %}">Resetuj wyszukiwanie</a></button>
+                <p></p>
+                <p>Dostępne produkty:</p>
+                <p></p>
+                <ul>
+                    {% for x in my_products %}
+                        <li>{{ x.product_name }}
+                        <button><a href="{% url 'product_change' x.id %}">Edycja produktu</a></button>
+                        <button><a href="{% url 'product_delete' x.id %}">Usuń produkt</a></button></li>
+                    {% endfor %}
+                </ul>
+                <button><a href="{% url 'product_create' %}">Dodaj nowy produkt</a></button>
+                <ul>
+                    <li><a href="{% url 'shopping_list' %}">Wszystkie listy zakupów</a></li>
+                    <li><a href="{% url 'create' %}">Stwórz nową listę zakupów</a></li>
+                </ul>
+            </div>
         </div>
-    {% endfor %}
-    <input type="submit" value="Szukaj">
-</form>
-<button><a href="{% url 'products' %}">Resetuj wyszukiwanie</a></button>
-<p></p>
-<p>Dostępne produkty:</p>
-<p></p>
-<ul>
-    {% for x in my_products %}
-        <li>{{ x.product_name }}
-        </li> <button><a href="{% url 'product_change' x.id %}">Edycja produktu</a></button>
-        </li> <button><a href="{% url 'product_delete' x.id %}">Usuń produkt</a></button>
-    {% endfor %}
-</ul>
-</li> <button><a href="{% url 'product_create' %}">Dodaj nowy produkt</a></button>
-<ul>
-    <li><a href="{% url 'main' %}">Powrót do strony głównej</a></li>
-    <li><a href="{% url 'shopping_list' %}">Wszystkie listy zakupów</a></li>
-    <li><a href="{% url 'create' %}">Stwórz nową listę zakupów</a></li>
-</ul>
+    </div>
+</div>
 </body>
 
 {% endblock content %}
