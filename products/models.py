@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.urls import reverse
 
 class Products(models.Model):
     product_name = models.CharField(max_length=15, verbose_name="Nazwa produktu")
@@ -21,6 +21,9 @@ class ShoppingLists(models.Model):
 
     class Meta:
         verbose_name_plural = "Listy zakupów"
+
+    def get_absolute_url(self):
+        return reverse('details', args=[str(self.id)])
 
 
 

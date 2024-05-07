@@ -66,8 +66,8 @@ def shopping_list_create(request):
     if request.method == 'POST':
         form = ShoppingListForm(request.POST)
         if form.is_valid():
-            shopping_list = form.save()
-            return redirect('details', shopping_list.pk)
+            shoppinglist = form.save()
+            return redirect('details', shoppinglist.pk)
     else:
         form = ShoppingListForm
 
