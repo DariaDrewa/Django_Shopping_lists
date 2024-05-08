@@ -12,6 +12,14 @@
     padding: 15px;
     margin: auto;
     }
+
+    .card-navigate {
+    width: 100%;
+    max-width: 800px;
+    padding: 15px;
+    margin: auto;
+    }
+
 </style>
 
 <body>
@@ -37,6 +45,17 @@
                 <ul>
                     <li><a href="{% url 'change' shoppinglists.id %}">Edycja listy</a></li>
                     <li><a href="{% url 'delete' shoppinglists.id %}">Usuń listę</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="card card-navigate">
+            <div class="card-body">
+                <ul>
                     <li><a href="{% url 'shopping_list' %}">Powrót do list zakupów</a></li>
                     <li><a href="{% url 'products' %}">Wszystkie dostępne produkty</a></li>
                 </ul>
@@ -44,6 +63,7 @@
         </div>
     </div>
 </div>
+
 </body>
 
 {% endblock content %}

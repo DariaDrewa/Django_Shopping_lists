@@ -12,6 +12,14 @@
     padding: 15px;
     margin: auto;
     }
+
+    .card-navigate {
+    width: 100%;
+    max-width: 800px;
+    padding: 15px;
+    margin: auto;
+    }
+
 </style>
 
 <body>
@@ -30,6 +38,15 @@
                     {% csrf_token %}
                     <input type="submit" value="Anuluj">
                 </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="card card-navigate">
+            <div class="card-body">
                 <ul>
                     <li><a href="{% url 'shopping_list' %}">Przejdź do wszystkich list</a></li>
                     <li><a href="{% url 'products' %}">Wszystkie dostępne produkty</a></li>
@@ -39,6 +56,7 @@
         </div>
     </div>
 </div>
+
 </body>
 
 {% endblock content %}
