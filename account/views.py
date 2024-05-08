@@ -58,6 +58,7 @@ def login_view(request, *args, **kwargs):
             content['login_form'] = form
     return render(request, 'login.html', content)
 
+
 def get_redirect_if_exists(request):
     redirect = None
     if request.GET:
