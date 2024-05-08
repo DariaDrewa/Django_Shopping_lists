@@ -20,6 +20,20 @@
     margin: auto;
     }
 
+    table {
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+    td, th {
+    border: 1px solid #dddddd;
+    padding: 5px;
+    }
+
+    tr:nth-child(even) {
+    background-color: #F1F3F3;
+    }
+
 </style>
 
 <body>
@@ -32,14 +46,27 @@
 
                 <table>
                     <tr>
-                        <th>Produkty:</th>
+                        <th> </th>
+                        <th>Produkty</th>
+                        <th>Ilość</th>
                     </tr>
                     {% for product in products_list %}
                     <tr>
+                        <td>
+                            <div>
+                              <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value=""
+                                     aria-label="...">
+                            </div>
+                        </td>
                         <td>{{ product.product_name }}</td>
+                        <td>
+                            <input type="number">
+                        </td>
                     </tr>
                     {% empty %}
-                    <li>Brak produktów</li>
+                    <tr>
+                    <td>Brak produktów</td>
+                    </tr>
                     {% endfor %}
                 </table>
                 <ul>
