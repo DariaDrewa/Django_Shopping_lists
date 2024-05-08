@@ -44,9 +44,7 @@
                 <p>_______________________________________________________</p>
                 </form>
                 <button><a href="{% url 'products' %}">Resetuj wyszukiwanie</a></button>
-                <p></p>
-                <p>Dostępne produkty:</p>
-                <p></p>
+                <p> </p>
                 <ul>
                     {% for x in my_products %}
                         <li>{{ x.product_name }}
