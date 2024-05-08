@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 
 class Products(models.Model):
-    product_name = models.CharField(max_length=15, verbose_name="Nazwa produktu")
+    product_name = models.CharField(max_length=30, verbose_name="Nazwa produktu")
 
     def __str__(self):
         return f"{self.product_name}"
