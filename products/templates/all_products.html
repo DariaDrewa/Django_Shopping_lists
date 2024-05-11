@@ -8,7 +8,14 @@
     a { color: black }
     -->
 
-    .card-signin {
+    .card-main {
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    margin: auto;
+    }
+
+    .card-search {
     width: 100%;
     max-width: 600px;
     padding: 15px;
@@ -25,13 +32,22 @@
 </STYLE>
 
 <body>
+
 <div class="container">
     <div class="row justify-content-center">
-        <div class="card card-signin">
+        <div class="card card-main">
             <div class="card-body">
                 <h1>Dostępne produkty</h1>
-                <p>_______________________________________________________</p>
-                <p>Wyszukaj produkt: </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="card card-search">
+            <div class="card-body">
+                <p>Wyszukaj produkt</p>
                 <form action="{% url 'products' %}" method="POST">
                     {% csrf_token %}
                     {% for field in form %}
@@ -43,16 +59,33 @@
                     <input type="submit" value="Szukaj">
                 </form>
                 <button><a href="{% url 'products' %}">Resetuj wyszukiwanie</a></button>
-                <p>_______________________________________________________</p>
-                <p> </p>
-                <ul>
-                    {% for x in my_products %}
-                        <li>{{ x.product_name }}
-                        <button><a href="{% url 'product_change' x.id %}">Edycja produktu</a></button>
-                        <button><a href="{% url 'product_delete' x.id %}">Usuń produkt</a></button></li>
-                    {% endfor %}
-                </ul>
-                <button><a href="{% url 'product_create' %}">Dodaj nowy produkt</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="card card-main">
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Nazwa produktu</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for x in my_products %}
+                            <tr>
+                                <td>{{ x.product_name }}</td>
+                                <td><a href="{% url 'product_change' x.id %}" class="btn btn-primary">Edytuj</a></td>
+                                <td><a href="{% url 'product_delete' x.id %}" class="btn btn-danger">Usuń</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
