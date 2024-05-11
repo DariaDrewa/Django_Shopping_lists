@@ -60,7 +60,7 @@
                         </td>
                         <td>{{ product.product_name }}</td>
                         <td>
-                            <input type="number">
+                            <input type="number" min="1" value="1">
                         </td>
                     </tr>
                     {% empty %}
@@ -72,7 +72,6 @@
                 <br>
                 <a href="{% url 'change' shoppinglists.id %}" class="btn btn-primary">Edycja listy</a>
                 <a href="{% url 'delete' shoppinglists.id %}" class="btn btn-danger">Usuń listę</a>
-
             </div>
         </div>
     </div>
@@ -85,6 +84,7 @@
                 <ul>
                     <li><a href="{% url 'shopping_list' %}">Powrót do list zakupów</a></li>
                     <li><a href="{% url 'products' %}">Wszystkie dostępne produkty</a></li>
+                    <li><a href="{% url 'product_create' %}">Dodaj nowy produkt</a></li>
                 </ul>
             </div>
         </div>

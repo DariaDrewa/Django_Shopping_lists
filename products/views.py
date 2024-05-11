@@ -1,3 +1,4 @@
+from django.http.response import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.views.generic import ListView, DetailView, CreateView
@@ -108,7 +109,7 @@ def product_create(request):
         form = ProductsForm(request.POST)
         if form.is_valid():
             products = form.save()
-            return render(request, 'all_products.html')
+            return redirect('products')
     else:
         form = ProductsForm
 
@@ -123,7 +124,7 @@ def product_change(request, id):
         form = ProductsForm(request.POST, instance=products)
         if form.is_valid():
             form.save()
-            return render(request, 'all_products.html')
+            return redirect('products')
     else:
         form = ProductsForm(instance=products)
     return render(request,
@@ -141,7 +142,6 @@ def product_delete(request, id):
     return render(request,
                   'delete_conf_page_product.html',
                   {'products': products})
-
 
 
 

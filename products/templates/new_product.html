@@ -23,11 +23,11 @@
                 <form action="" method="post" novalidate>
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <input type="submit" value="Dodaj">
+                    <input type="submit" class="btn btn-success" value="Dodaj">
                 </form>
                 <form action="{% url 'products' %}">
                     {% csrf_token %}
-                    <input type="submit" value="Anuluj">
+                    <input type="submit" class="btn btn-info" value="Anuluj">
                 </form>
             </div>
         </div>
