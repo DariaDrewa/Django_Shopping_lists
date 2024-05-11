@@ -32,11 +32,11 @@
                 <form action="" method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <input type="submit" value="Dodaj">
+                    <input type="submit" class="btn btn-success" value="Stwórz listę">
                 </form>
                 <form action="{% url 'shopping_list' %}">
                     {% csrf_token %}
-                    <input type="submit" value="Anuluj">
+                    <input type="submit" class="btn btn-primary" value="Anuluj">
                 </form>
             </div>
         </div>

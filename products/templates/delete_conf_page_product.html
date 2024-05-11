@@ -22,11 +22,11 @@
                 <h1>Jesteś pewny, że chcesz usunąć produkt: "{{ products.product_name }}"?</h1>
                 <form action="" method="post">
                     {% csrf_token %}
-                    <input type="submit" value="Tak, usuń produkt">
+                    <input type="submit" class="btn btn-danger" value="Tak, usuń produkt">
                 </form>
                 <form action="{% url 'products' %}">
                     {% csrf_token %}
-                    <input type="submit" value="Nie, wróć do listy produktów">
+                    <input type="submit" class="btn btn-info" value="Nie, wróć do listy produktów">
                 </form>
             </div>
         </div>

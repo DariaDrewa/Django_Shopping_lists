@@ -22,11 +22,11 @@
                 <h1>Jesteś pewny, że chcesz usunąć listę: "{{ shoppinglist.lists_name }}"?</h1>
                 <form action="" method="post">
                     {% csrf_token %}
-                    <input type="submit" value="Tak, usuń listę">
+                    <input type="submit" class="btn btn-danger" value="Tak, usuń listę">
                 </form>
                 <form action="{% url 'details' shoppinglist.id %}">
                     {% csrf_token %}
-                    <input type="submit" value="Nie, wróć do listy">
+                    <input type="submit" class="btn btn-info" value="Nie, wróć do listy">
                 </form>
             </div>
         </div>

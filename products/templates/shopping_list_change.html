@@ -24,11 +24,11 @@
                 <form action="" method="post">
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <input type="submit" value="Zapisz zmiany">
+                    <input type="submit" class="btn btn-success" value="Zapisz zmiany">
                 </form>
                 <form action="{% url 'details' shoppinglist.id %}">
                     {% csrf_token %}
-                    <input type="submit" value="Anuluj zmiany">
+                    <input type="submit" class="btn btn-info" value="Anuluj zmiany">
                 </form>
             </div>
         </div>

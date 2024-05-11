@@ -69,10 +69,10 @@
                     </tr>
                     {% endfor %}
                 </table>
-                <ul>
-                    <li><a href="{% url 'change' shoppinglists.id %}">Edycja listy</a></li>
-                    <li><a href="{% url 'delete' shoppinglists.id %}">Usuń listę</a></li>
-                </ul>
+                <br>
+                <a href="{% url 'change' shoppinglists.id %}" class="btn btn-primary">Edycja listy</a>
+                <a href="{% url 'delete' shoppinglists.id %}" class="btn btn-danger">Usuń listę</a>
+
             </div>
         </div>
     </div>

@@ -56,9 +56,9 @@
                             {{ field.label_tag }} {{ field }}
                         </div>
                     {% endfor %}
-                    <input type="submit" value="Szukaj">
+                    <input type="submit" class="btn btn-success" value="Szukaj">
                 </form>
-                <button><a href="{% url 'products' %}">Resetuj wyszukiwanie</a></button>
+                <a href="{% url 'products' %}"  class="btn btn-light">Resetuj wyszukiwanie</a>
             </div>
         </div>
     </div>
