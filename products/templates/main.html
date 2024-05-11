@@ -22,11 +22,14 @@
             <div class="card-body">
                 <div class="my.grid d-flex flex-column">
                     <h1>Kreator list zakupów</h1>
-                    <ul>
-                        <li><a href="{% url 'create' %}">Stwórz nową listę zakupów</a></li>
-                        <li><a href="{% url 'shopping_list' %}">Wszystkie listy zakupów</a></li>
-                        <li><a href="{% url 'products' %}">Wszystkie dostępne produkty</a></li>
-                    </ul>
+                        <a href="{% url 'create' %}" class="btn btn-outline-primary btn-lg">
+                            Stwórz nową listę zakupów</a>
+                        <br>
+                        <a href="{% url 'shopping_list' %}" class="btn btn-outline-primary btn-lg">
+                            Wszystkie listy zakupów</a>
+                        <br>
+                        <a href="{% url 'products' %}" class="btn btn-outline-primary btn-lg">
+                            Wszystkie dostępne produkty</a>
                 </div>
             </div>
         </div>
