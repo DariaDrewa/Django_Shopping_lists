@@ -20,7 +20,7 @@
         <div class="card card-conf">
             <div class="card-body">
                 <h1>Jesteś pewny, że chcesz usunąć produkt: "{{ products.product_name }}"?</h1>
-                <form action="{% url 'products' %}" method="post">
+                <form action="" method="post">
                     {% csrf_token %}
                     <input type="submit" value="Tak, usuń produkt">
                 </form>

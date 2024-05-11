@@ -10,6 +10,7 @@ class ShoppingListForm(forms.ModelForm):
     products = forms.ModelMultipleChoiceField(
             queryset=Products.objects.all(),
             widget=forms.CheckboxSelectMultiple,
+            label="Produkty",
         )
 
 
