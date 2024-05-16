@@ -1,4 +1,4 @@
-# 🇵🇱 Projekt Django - Kreator list zakupów
+# ![Poland](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/pl.png "Poland") Projekt Django - Kreator list zakupów
 ### 
 
 ## Informacje ogólne:
@@ -35,7 +35,7 @@ cd Shopping_lists
 python manage.py runserver
 ```
 
-# 🇬🇧 Django App - Shopping list creator
+# ![United Kingdom](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/gb.png "United Kingdom") Django App - Shopping list creator
 
 ## General info:
 Web application that allows you to generate shopping lists. The application was created as a final project
