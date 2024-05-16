@@ -2,9 +2,9 @@
 ### 
 
 ## Table of contents
-* [Informacje ogólne / General info](#informacje ogólne/general info)
-* [Technologie / Technologies](#technologie/technologies:)
-* [Ustawienia / Setup](#ustawienia/setup)
+* [Informacje ogólne / General info](#informacje-ogólne-/-general-info)
+* [Technologie / Technologies](#technologie-/-technologies:)
+* [Ustawienia / Setup](#ustawienia-/-setup)
 
 # Informacje ogólne / General info:
 Aplikacja internetowa pozwalająca na generowaniu list zakupów. Aplikacja stworzona jako projekt zaliczeniowy 
