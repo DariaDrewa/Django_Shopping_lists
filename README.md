@@ -36,7 +36,7 @@ cd Shopping_lists
 python manage.py runserver
 ```
 
-# ![United Kingdom](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/gb.png "United Kingdom") Django App - Shopping list creator
+# ![United Kingdom](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/gb.png "United Kingdom") Django Project - Shopping list creator
 
 ## General info:
 Web application that allows you to generate shopping lists. The application was created as a final project
