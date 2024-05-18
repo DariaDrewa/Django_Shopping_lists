@@ -10,6 +10,8 @@ W projekcie wykorzystano:
 * Python 3.10.12
 * Django 4.2.11
 * Bootstrap v5.3.3
+* Selenium 4.21.0
+* Faker 25.2.0
 
 ## Ustawienia
 
@@ -48,6 +50,8 @@ Project is created with:
 * Python 3.10.12
 * Django 4.2.11
 * Bootstrap v5.3.3
+* Selenium 4.21.0
+* Faker 25.2.0
 
 ## Setup
 
