@@ -2,7 +2,7 @@
 ### 
 
 ## Informacje ogólne:
-Aplikacja internetowa pozwalająca na generowaniu list zakupów. Aplikacja stworzona jako projekt zaliczeniowy 
+Aplikacja internetowa pozwalająca na generowanie list zakupów. Aplikacja stworzona jako projekt zaliczeniowy 
 studiów podyplomowych na Uniwersytecie WSB Merito na kierunku Python Developer.
 
 ## Technologie:
@@ -20,8 +20,9 @@ git clone https://github.com/DariaDrewa/Django_Shopping_lists.git
 
 ### Aktywacja wirtualnego środowiska:
 ```shell
-cd Shopping_lists
-source venv/bin/activate
+cd Django_Shopping_lists
+python3 -m venv slvenv
+source slvenv/bin/activate
 ```
 
 ### Instalacja pakietów:
@@ -57,8 +58,9 @@ git clone https://github.com/DariaDrewa/Django_Shopping_lists.git
 
 ### Virtual environment activation:
 ```shell
-cd Shopping_lists
-source venv/bin/activate
+cd Django_Shopping_lists
+python3 -m venv slvenv
+source slvenv/bin/activate
 ```
 
 ### Installing packages:
