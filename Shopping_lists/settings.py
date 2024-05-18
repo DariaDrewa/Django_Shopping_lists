@@ -29,6 +29,7 @@ ALLOWED_HOSTS = []
 
 AUTH_USER_MODEL = "account.Account"
 
+LOGIN_URL = 'account/template/login.html'
 
 SESSION_COOKIE_SECURE = False
 

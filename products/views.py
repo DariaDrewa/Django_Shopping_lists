@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import generic
+from django.contrib.auth.decorators import login_required
 from django.views.generic import ListView, DetailView, CreateView
 from .models import Products, ShoppingLists
 from .forms import ShoppingListForm, ProductsForm
@@ -34,7 +35,7 @@ class ProductsListView(ListView):
             product_name = self.request.POST["product_name"]
 
             if product_name != "":
-                self.object_list = self.object_list.filter(product_name=product_name)
+                self.object_list = self.object_list.filter(product_name=product_name).order_by("product_name")
 
             context[self.context_object_name] = self.object_list
         return render(self.request, self.template_name, context)
@@ -52,7 +53,7 @@ class ShoppingListDetails(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['products_list'] = Products.objects.filter(shoppinglists=self.object.id)
+        context['products_list'] = Products.objects.filter(shoppinglists=self.object.id).order_by("product_name")
         return context
 
 
@@ -69,13 +70,14 @@ def shopping_list_create(request):
             shoppinglist = form.save()
             return redirect('details', shoppinglist.pk)
     else:
-        form = ShoppingListForm
+        form = ShoppingListForm()
 
     return render(request,
                   'new_shopping_list.html',
                   {'form': form})
 
 
+@login_required(login_url='login')
 def shopping_list_change(request, id):
     shoppinglist = ShoppingLists.objects.get(id=id)
     if request.method == 'POST':
@@ -92,6 +94,7 @@ def shopping_list_change(request, id):
                    'form': form})
 
 
+@login_required(login_url='login')
 def shopping_list_delete(request, id):
     shoppinglist = ShoppingLists.objects.get(id=id)
     if request.method == "POST":
@@ -103,6 +106,7 @@ def shopping_list_delete(request, id):
                   {'shoppinglist': shoppinglist})
 
 
+@login_required(login_url='login')
 def product_create(request):
     if request.method == 'POST':
         form = ProductsForm(request.POST)
@@ -110,13 +114,14 @@ def product_create(request):
             products = form.save()
             return redirect('products')
     else:
-        form = ProductsForm
+        form = ProductsForm()
 
     return render(request,
                   'new_product.html',
                   {'form': form})
 
 
+@login_required(login_url='login')
 def product_change(request, id):
     products = Products.objects.get(id=id)
     if request.method == "POST":
@@ -132,6 +137,7 @@ def product_change(request, id):
                    'form': form})
 
 
+@login_required(login_url='login')
 def product_delete(request, id):
     products = Products.objects.get(id=id)
     if request.method == "POST":

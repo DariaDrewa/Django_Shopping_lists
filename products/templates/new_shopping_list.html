@@ -29,10 +29,16 @@
             <div class="card-body">
                 <h1>Stwórz nową listę!</h1>
                 <p>Dodaj produkty, a ilość skonfigurujesz na następnej stronie.</p>
-                <form action="" method="post">
+                <form action="" method="post" novalidate>
                     {% csrf_token %}
                     {{ form.as_p }}
-                    <input type="submit" class="btn btn-success" value="Stwórz listę">
+                    {% if user.is_authenticated %}
+                        <input type="submit" class="btn btn-success" value="Stwórz listę">
+                    {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-danger">
+                            Musisz być zalogowany, aby stworzyć listę. Zaloguj się.
+                        </a>
+                    {% endif %}
                 </form>
                 <form action="{% url 'shopping_list' %}">
                     {% csrf_token %}
