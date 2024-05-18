@@ -8,7 +8,7 @@ class ShoppingListForm(forms.ModelForm):
         fields = ('lists_name', 'products')
 
     products = forms.ModelMultipleChoiceField(
-            queryset=Products.objects.all(),
+            queryset=Products.objects.all().order_by("product_name"),
             widget=forms.CheckboxSelectMultiple,
             label="Produkty",
         )

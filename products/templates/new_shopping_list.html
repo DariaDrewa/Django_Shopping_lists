@@ -35,12 +35,12 @@
                     {% if user.is_authenticated %}
                         <input type="submit" class="btn btn-success" value="Stwórz listę">
                     {% else %}
-                        <a href="{% url 'login' %}" class="btn btn-danger">
+                        <a href="{% url 'login' %}" class="btn btn-warning">
                             Musisz być zalogowany, aby stworzyć listę. Zaloguj się.
                         </a>
                     {% endif %}
                 </form>
-                <form action="{% url 'shopping_list' %}">
+                <form action="{% url 'main' %}">
                     {% csrf_token %}
                     <input type="submit" class="btn btn-primary" value="Anuluj">
                 </form>

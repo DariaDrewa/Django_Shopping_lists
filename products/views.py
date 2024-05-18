@@ -20,7 +20,7 @@ class ProductsListView(ListView):
     context_object_name = 'my_products'
 
     def get_queryset(self):
-        return Products.objects.all()
+        return Products.objects.all().order_by("product_name")
 
     def get_context_data(self, **kwargs):
         context = super(ProductsListView, self).get_context_data(**kwargs)
