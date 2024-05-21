@@ -35,9 +35,18 @@
                     {% if user.is_authenticated %}
                         <input type="submit" class="btn btn-success" value="Stwórz listę">
                     {% else %}
-                        <a href="{% url 'login' %}" class="btn btn-warning">
-                            Musisz być zalogowany, aby stworzyć listę. Zaloguj się.
-                        </a>
+                        <p class="d-inline-flex gap-1">
+                            <a class="btn btn-danger" data-bs-toggle="collapse" href="#collapse" role="button"
+                               aria-expanded="false" aria-controls="collapse">
+                                Musisz być zalogowany, aby stworzyć listę</a></p>
+                            <div class="collapse" id="collapse">
+                              <div class="card card-body">
+                                <a href="{% url 'login' %}" class="btn btn-outline-primary">Zaloguj się</a>
+                                  <br>
+                                <a href="{% url 'register' %}" class="btn btn-outline-primary">Zarejestruj się</a>
+                              </div>
+                            </div>
+
                     {% endif %}
                 </form>
                 <form action="{% url 'main' %}">
