@@ -37,17 +37,17 @@
         <div class="card card-signin">
             <div class="card-body">
                 <form class="form-sign" method="post">{% csrf_token %}
-                    <div class="d-flex flex-column -pb-3">
+                    <div class="d-flex flex-column pb-3">
                         <img class="img-fluid mx-auto d-block" src="{% static 'image/logo.png' %}" alt="logo"
                         width="72" height="72">
                     </div>
-                    <input type="email" name="email" id="inputEmail" class="form-control" placeholder="Adres e-mail"
-                    required autofocus>
-                    <input type="text" name="username" id="inputUsername" class="form-control"
+                    <input type="email" name="email" id="inputEmail" class="form-control mb-2"
+                           placeholder="Adres e-mail" required autofocus>
+                    <input type="text" name="username" id="inputUsername" class="form-control mb-2"
                            placeholder="Nazwa użytkownika" required>
-                    <input type="password" name="password1" id="inputPassword1" class="form-control" placeholder="Hasło"
-                    required>
-                    <input type="password" name="password2" id="inputPassword2" class="form-control"
+                    <input type="password" name="password1" id="inputPassword1" class="form-control mb-2"
+                           placeholder="Hasło" required>
+                    <input type="password" name="password2" id="inputPassword2" class="form-control mb-2"
                            placeholder="Potwierdź hasło" required>
                     <br>
 
