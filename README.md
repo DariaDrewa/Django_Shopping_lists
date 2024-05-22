@@ -22,13 +22,13 @@ git clone https://github.com/DariaDrewa/Django_Shopping_lists.git
 
 ### Aktywacja wirtualnego środowiska:
 ```shell
-cd Django_Shopping_lists
 python3 -m venv slvenv
 source slvenv/bin/activate
 ```
 
 ### Instalacja pakietów:
 ```shell 
+cd Django_Shopping_lists
 pip install -r requirements.txt
 ```
 
@@ -62,13 +62,13 @@ git clone https://github.com/DariaDrewa/Django_Shopping_lists.git
 
 ### Virtual environment activation:
 ```shell
-cd Django_Shopping_lists
 python3 -m venv slvenv
 source slvenv/bin/activate
 ```
 
 ### Installing packages:
 ```shell 
+cd Django_Shopping_lists
 pip install -r requirements.txt
 ```
 
