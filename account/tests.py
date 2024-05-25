@@ -7,13 +7,14 @@ fake = Faker()
 email = fake.email()
 user_name = fake.user_name()
 password = fake.password()
+page_url_main = "http://127.0.0.1:8000/"
 
 
 class RegistrationTest(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
         self.driver.maximize_window()
-        self.driver.get("http://127.0.0.1:8000/")
+        self.driver.get(page_url_main)
         self.driver.implicitly_wait(20)
 
     def testNoUserNameEntered(self):
@@ -40,7 +41,7 @@ class RegistrationTest(unittest.TestCase):
 
         # TEST
         get_url = self.driver.current_url
-        if get_url == "http://127.0.0.1:8000/":
+        if get_url == page_url_main:
             print("The test failed, managed to register without entering username")
         else:
             print("Test successful. Registration without a username failed.")

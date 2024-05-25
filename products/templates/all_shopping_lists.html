@@ -41,7 +41,7 @@
                             <td>{{ x.lists_name }}</td>
                             <td>
                                 <form action="{% url 'details' x.id %}">
-                                     {% csrf_token %}
+                                    {% csrf_token %}
                                     {% if user.is_authenticated %}
                                     <input type="submit" class="btn btn-success" value="Otwórz listę">
                                     {% endif %}

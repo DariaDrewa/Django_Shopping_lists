@@ -35,7 +35,7 @@ class ProductsListView(ListView):
             product_name = self.request.POST["product_name"]
 
             if product_name != "":
-                self.object_list = self.object_list.filter(product_name=product_name).order_by("product_name")
+                self.object_list = self.object_list.filter(product_name__contains=product_name).order_by("product_name")
 
             context[self.context_object_name] = self.object_list
         return render(self.request, self.template_name, context)
