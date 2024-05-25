@@ -16,7 +16,7 @@ class RegistrationForm(UserCreationForm):
         email = self.cleaned_data['email'].lower()
         try:
             account = Account.objects.get(email=email)
-        except Exception:
+        except Exception as e:
             return email
         raise forms.ValidationError(f"Adres e-mail '{email}' jest już zajęty.")
 
@@ -24,7 +24,7 @@ class RegistrationForm(UserCreationForm):
         username = self.cleaned_data['username']
         try:
             account = Account.objects.get(username=username)
-        except Exception:
+        except Exception as e:
             return username
         raise forms.ValidationError(f"Nazwa użytkownika '{username}' jest już zajęta.")
 
