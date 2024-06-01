@@ -4,7 +4,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 class MyAccountManager(BaseUserManager):
 
-    def create_user(self, email, username, password):
+    def create_user(self, email, username, password=None):
         if not email:
             raise ValueError("Użytkownik musi podać adres e-mail.")
         if not username:
