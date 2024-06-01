@@ -34,7 +34,7 @@ pip install -r requirements.txt
 
 ### Uruchomienie aplikacji:
 ```shell 
-cd Shopping_lists
+python manage.py migrate
 python manage.py runserver
 ```
 
@@ -74,6 +74,6 @@ pip install -r requirements.txt
 
 ### Launching the app:
 ```shell 
-cd Shopping_lists
+python manage.py migrate
 python manage.py runserver
 ```
